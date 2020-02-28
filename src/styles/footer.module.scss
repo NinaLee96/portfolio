@@ -1,24 +1,19 @@
 $font: Roboto Condensed, Lato, Arial, sans-serif;
 
-//fix the contact form so that it's side by side.
-//animation figure left side
-//contact form right side
-
 .background {
   display: grid;
   background-color: #2d465a;
-  height: 50vh;
+  height: 20vh;
   grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
 
   .footer {
+    display: flex;
+    align-self: center;
+    justify-self: center;
     text-align: center;
     font-family: $font;
     color: white;
     font-size: 16px;
-  }
-
-  .contact {
-    grid-column: span 1;
   }
 }
