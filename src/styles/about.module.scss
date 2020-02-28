@@ -1,0 +1,96 @@
+$font: Roboto Condensed, Lato, Arial, sans-serif;
+$fontt: Josefin Sans, sans-serif;
+
+@mixin headerText {
+  font-size: 36px;
+  padding: 10px;
+  margin: 0;
+  color: white;
+  text-align: center;
+  font-family: $font;
+}
+
+@mixin bioText {
+  color: white;
+  font-size: 20px;
+  font-family: $fontt;
+}
+
+// for screens < 1000px
+.container {
+  display: grid;
+  grid-template-areas: auto;
+  grid-template-rows: auto;
+  height: 100vh;
+  background-color: #2d465a;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    0deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(45, 70, 90, 1) 100%
+  );
+
+  .header {
+    @include headerText();
+  }
+
+  .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .me {
+      height: 50vh;
+    }
+  }
+
+  .bio {
+    overflow: hidden;
+    .text {
+      padding: 25px;
+      @include bioText();
+    }
+  }
+}
+
+//for screens larger than 1000px
+@media screen and (min-width: 1000px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    // grid-template-areas: "image" "bio";
+    background-color: #2d465a;
+    .header {
+      grid-column: span 2;
+      @include headerText();
+    }
+
+    .image {
+      grid-area: 'image';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // background-image: url(../images/me.svg);
+      // background-repeat: no-repeat;
+      // height: 20vh;
+      // height: 100vh;
+      .me {
+        height: 70vh;
+      }
+    }
+
+    .bio {
+      grid-area: 'bio';
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .text {
+        @include bioText();
+        width: 600px;
+      }
+    }
+  }
+}

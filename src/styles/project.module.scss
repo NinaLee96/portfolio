@@ -1,0 +1,128 @@
+$font: Roboto Condensed, Lato, Arial, sans-serif;
+
+// functions to avoid duplicate css code
+@mixin header {
+  grid-column: span 2;
+  margin: 0;
+  padding: 10px;
+  font-size: 36px;
+  color: white;
+  background-color: black;
+  text-align: center;
+  font-family: $font;
+}
+
+@mixin projectTitle {
+  text-decoration: none;
+  color: white;
+  font-family: $font;
+  text-align: center;
+
+  &:hover {
+    color: #4c8caf;
+  }
+}
+
+@mixin descriptionText {
+  font-family: $font;
+  color: white;
+  font-size: 16px;
+}
+
+@mixin github {
+  text-decoration: none;
+  color: white;
+  &:hover {
+    color: blue;
+  }
+}
+// for screens < 1000px
+.background {
+  // background-color: black;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(45, 70, 90, 1) 100%
+  );
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+
+  .header {
+    @include header();
+  }
+  .picture {
+    width: 90%;
+  }
+  h3,
+  .project-title {
+    @include projectTitle();
+  }
+  .projects {
+    grid-column: span 2;
+    justify-self: center;
+    text-align: center;
+    width: 100%;
+  }
+  .description {
+    display: none;
+    @include descriptionText();
+  }
+  .project-github {
+    display: none;
+    @include github();
+  }
+}
+
+// for screens larger than 1000px;
+@media screen and (min-width: 1000px) {
+  .background {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 40px;
+    grid-template-rows: auto;
+
+    .header {
+      @include header();
+    }
+
+    .picture {
+      border: 2px solid black;
+      width: 40vw;
+      &:hover {
+        box-shadow: 0 1px 10px #ffffff;
+      }
+    }
+
+    h3,
+    .project-title {
+      @include projectTitle();
+    }
+
+    .projects {
+      grid-column: span 1;
+      justify-self: center;
+      align-self: center;
+      text-align: left;
+      height: 80vh;
+      width: 40vw;
+      // manipulates last object of projects to take up two columns
+      &:nth-child(6) {
+        grid-column: span 2;
+      }
+    }
+
+    .description {
+      display: block;
+      @include descriptionText();
+    }
+
+    .project-github {
+      display: block;
+      @include github();
+    }
+  }
+}
