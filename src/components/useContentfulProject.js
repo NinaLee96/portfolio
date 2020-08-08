@@ -21,6 +21,7 @@ import { useStaticQuery, graphql } from "gatsby";
 //   return data.projects
 // }
 //queries for studenthub project only
+//add queries for the other projects
 
 export const useStudenthubProject = () => {
   const data = useStaticQuery(graphql `
