@@ -14,7 +14,7 @@ $font: Roboto Condensed, Lato, Arial, sans-serif;
 
 @mixin projectTitle {
   text-decoration: none;
-  color: white;
+  color: black;
   font-family: $font;
   text-align: center;
 
@@ -25,13 +25,13 @@ $font: Roboto Condensed, Lato, Arial, sans-serif;
 
 @mixin descriptionText {
   font-family: $font;
-  color: white;
+  color: black;
   font-size: 16px;
 }
 
 @mixin github {
   text-decoration: none;
-  color: white;
+  color: black;
   &:hover {
     color: blue;
   }
@@ -82,8 +82,8 @@ $font: Roboto Condensed, Lato, Arial, sans-serif;
   .background {
     background-color: black;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-row-gap: 220px;
+    grid-template-columns: 1fr;
+    grid-row-gap: 100px;
     grid-template-rows: auto;
     .header {
       @include header();
@@ -91,7 +91,8 @@ $font: Roboto Condensed, Lato, Arial, sans-serif;
 
     .picture {
       border: 2px solid black;
-      width: 40vw;
+      width: 35vw;
+      height: 260px;
       &:hover {
         box-shadow: 0 1px 10px #ffffff;
       }
@@ -103,19 +104,25 @@ $font: Roboto Condensed, Lato, Arial, sans-serif;
     }
 
     .projects {
-      grid-column: span 1;
+      // text-align: left;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      grid-template-areas: 'image description';
+      background-color: white;
+      height: 200px;
+      width: 60vw;
 
-      text-align: left;
-      width: 40vw;
-      // manipulates last object of projects to take up two columns
-      &:nth-child(6) {
-        grid-column: span 2;
+      .img {
+        grid-area: 'image';
       }
-    }
 
-    .description {
-      display: block;
-      @include descriptionText();
+      .description {
+        grid-area: 'description';
+        display: block;
+        text-align: left;
+        @include descriptionText();
+      }
     }
 
     .project-github {
