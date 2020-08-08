@@ -3,7 +3,7 @@ import studenthub from '../../images/ss.png';
 import projectStyles from '../../styles/project.module.scss';
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { useStudenthubProject } from '../useContentfulProject';
-
+//
 //figure out how to grab the description from contentful
 const Studenthub = () => {
   const { nodes } = useStudenthubProject();
