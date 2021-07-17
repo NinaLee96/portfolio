@@ -1,16 +1,19 @@
 import React from 'react';
-import studenthub from '../../images/ss.png';
 import projectStyles from '../../styles/project.module.scss';
+import gameImage from '../../images/2dgame.png';
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { useStudenthubProject } from '../hooks/useContentfulProject';
+import { use2dGameProject } from '../hooks/useGameProject';
 
-const Studenthub = () => {
-  const { nodes } = useStudenthubProject(); //returns project object in array
-  const project = nodes[0]                  //grabs first object of array
-  // console.log('projects:', project);
+
+const Game = () => {
+
+  const { nodes } = use2dGameProject();
+  const project = nodes[0];
+  // console.log(project);
+
   return(
     <div className={projectStyles.projects}>
-       <div className={projectStyles.img}>{ studenthub ? <img className={projectStyles.resize} src={studenthub}/> : "No image provided"} </div>
+       <div className={projectStyles.img}>{ gameImage ? <img className={projectStyles.resize} src={gameImage}/> : "No image provided"} </div>
           <div className={projectStyles.description}>
             <h3>
               <a href={project.url ? project.url : project.github} rel="noopener noreferrer" target="_blank" className={projectStyles['project-title']}>{project.name}</a>
@@ -19,7 +22,8 @@ const Studenthub = () => {
             <a href={project.github}rel="noopener noreferrer" target="_blank" className={projectStyles['project-github']}>Check it out on Github</a>
         </div>
     </div>
+  
   )
 }
 
-export default Studenthub;
+export default Game;

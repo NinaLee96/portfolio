@@ -26,7 +26,7 @@ import { useStaticQuery, graphql } from "gatsby";
 export const useStudenthubProject = () => {
   const data = useStaticQuery(graphql `
   {
-    project: allContentfulProject(filter: {id: {eq: "b07dfa46-1286-5bda-90b4-a484e616915d"}}) {
+    project: allContentfulProject(filter: {id: {eq: "9a029a12-55bc-55c4-a0f8-c32c99d278b0"}}) {
       nodes {
         name
         id
@@ -42,5 +42,6 @@ export const useStudenthubProject = () => {
 
   return data.project;
 }
+
 
 

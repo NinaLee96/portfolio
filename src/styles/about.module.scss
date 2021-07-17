@@ -24,12 +24,12 @@ $fontt: Josefin Sans, sans-serif;
   height: 100vh;
   background-color: #2d465a;
   background: rgb(2, 0, 36);
-  background: linear-gradient(
-    0deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(45, 70, 90, 1) 100%
-  );
+  // background: linear-gradient(
+  //   0deg,
+  //   rgba(2, 0, 36, 1) 0%,
+  //   rgba(0, 0, 0, 1) 0%,
+  //   rgba(45, 70, 90, 1) 100%
+  // );
 
   .header {
     @include headerText();

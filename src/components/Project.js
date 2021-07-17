@@ -1,14 +1,16 @@
 import React, { useRef, useEffect, createRef } from "react";
-import { useContentfulProject } from "../components/useContentfulProject";
+import { useContentfulProject } from "./hooks/useContentfulProject";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import projectStyles from "../styles/project.module.scss";
 import { gsap } from 'gsap';
 import ScrollMagic from 'scrollmagic';
 
 import StudentHub from '../components/projects/StudentHub';
+import Game from '../components/projects/Game';
 
 //fix gsap effect if needed, add footer to page
 //fix project image sizes
+//find a color scheme
 
 const Project = () => {
  
@@ -61,12 +63,13 @@ const Project = () => {
   return (      
       <div className={projectStyles.background} id="triggerEffect"> 
         <h2 className={projectStyles.header}>Projects</h2>
-        <div 
-          className={projectStyles.projects}
-          // ref={el => projectItem.current[i] = el}
-          >
-            <StudentHub/>
-          </div>
+        <div className={projectStyles.student}>
+          <StudentHub/>
+        </div>
+        <div className={projectStyles.game}>
+          <Game/>
+        </div>
+          
         
 
 

@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
 import aboutStyles from "../styles/about.module.scss";
-import me from '../images/me.svg';
 import { Power3, gsap } from 'gsap';
 import ScrollMagic from 'scrollmagic';
 
@@ -22,7 +21,7 @@ const About = () =>{
 
  
   useEffect(() =>{
-    console.log(bioItem);
+    // console.log(bioItem);
     handleBioAnimation();
     new ScrollMagic.Scene({
       triggerElement: '#trigger',
@@ -43,9 +42,7 @@ const About = () =>{
     <div className={aboutStyles.container} id="trigger">
       <h2 className={aboutStyles.header}>About Me</h2>
       <div className={aboutStyles.image}>
-        <img 
-        ref={element => {imageItem = element}}
-        src={me} alt="picture of me" className={aboutStyles.me}/>
+    
       </div>
       <div className={aboutStyles.bio}>
         {/* edit bio some more */}
