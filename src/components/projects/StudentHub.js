@@ -6,7 +6,7 @@ import { useStudenthubProject } from '../hooks/useContentfulProject';
 
 const Studenthub = () => {
   const { nodes } = useStudenthubProject(); //returns project object in array
-  const project = nodes[0]                  //grabs first object of array
+  const project = nodes[0]                  //grabs first object of array 
   // console.log('projects:', project);
   return(
     <div className={projectStyles.projects}>
